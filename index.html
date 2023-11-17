@@ -204,6 +204,10 @@
       <p>With Love</p>
       <span class="footer-heart"><i class="fa fa-heart"></i></span>
       <h2 class="footer-names">Shoeb & Uzma</h2>
+	   <div class="hidden">
+	   <div>Website visit count:</div>
+    <div class="website-counter"></div>
+	</div>
    </footer>
    <script src="assets/js/plugins.js" type="text/javascript"></script><script src="assets/js/main.js" type="text/javascript"></script>
 
@@ -232,6 +236,19 @@
       document.getElementById("countdown-timer").innerHTML = "The wedding is here!";
     }
   }, 1000);
+var counterContainer = document.querySelector(".website-counter");
+var resetButton = document.querySelector("#reset");
+var visitCount = localStorage.getItem("page_view");
+
+// Check if page_view entry is present
+if (visitCount) {
+  visitCount = Number(visitCount) + 1;
+  localStorage.setItem("page_view", visitCount);
+} else {
+  visitCount = 1;
+  localStorage.setItem("page_view", 1);
+}
+counterContainer.innerHTML = visitCount;
 </script>
 
 
